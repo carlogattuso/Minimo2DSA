@@ -7,13 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.minimo2dsa.models.Element;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    private List<GithubFollowers> values;
+    private List<Element> values;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -29,12 +30,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             super(v);
             layout = v;
             title = (TextView) v.findViewById(R.id.firstLine);
-            id = (TextView) v.findViewById(R.id.secondLine);
             image = (ImageView) v.findViewById(R.id.image);
         }
     }
 
-    public void add(int position, GithubFollowers item) {
+    public void add(int position, Element item) {
         values.add(position, item);
         notifyItemInserted(position);
     }
@@ -45,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<GithubFollowers> myDataset) {
+    public MyAdapter(List<Element> myDataset) {
         values = myDataset;
     }
 
@@ -68,10 +68,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final GithubFollowers element = values.get(position);
-        holder.title.setText(element.getLogin());
-        holder.id.setText(String.valueOf(element.getId()));
-        Picasso.get().load(element.getAvatar_url()).into(holder.image);
+        final Element element = values.get(position);
+        holder.title.setText(element.getAdrecaNom());
+        Picasso.get().load(element.getImatge().get(0)).into(holder.image);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
