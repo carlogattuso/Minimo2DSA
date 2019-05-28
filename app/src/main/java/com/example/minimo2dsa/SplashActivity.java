@@ -3,6 +3,9 @@ package com.example.minimo2dsa;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -11,6 +14,8 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
+        ImageView image = findViewById(R.id.image2);
+
         Thread timer= new Thread()
         {
             public void run()
@@ -18,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
                 try
                 {
                     //Display for 3 seconds
-                    sleep(4000);
+                    sleep(3000);
                 }
                 catch (InterruptedException e)
                 {
